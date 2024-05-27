@@ -42,8 +42,6 @@ public class AuthController {
 
         cashRichUserDetails userDetails = (cashRichUserDetails) authentication.getPrincipal();
 
-
-
         return ResponseEntity.ok("User " + userDetails.getUsername() + " logged in successfully!");
     }
 

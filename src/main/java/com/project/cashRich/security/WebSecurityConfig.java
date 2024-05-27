@@ -52,7 +52,7 @@ class WebSecurityConfig{
         http.csrf(AbstractHttpConfigurer:: disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/users/**")
+                        .requestMatchers("/users/**","auth/**", "/api/**")
                         .permitAll().anyRequest().authenticated());
         return http.build();
     }

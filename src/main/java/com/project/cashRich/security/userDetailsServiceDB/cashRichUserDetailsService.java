@@ -7,6 +7,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import static com.project.cashRich.security.userDetailsServiceDB.cashRichUserDetails.buildUserDetails;
+
 /**
  * @author Nehal Ansari
  */
@@ -19,6 +22,6 @@ public class cashRichUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
-        return (UserDetails) user;
+        return buildUserDetails(user);
     }
 }

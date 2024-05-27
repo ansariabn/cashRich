@@ -28,18 +28,18 @@ public class cashRichUserDetails implements UserDetails {
     private String password;
 
     private Collection<GrantedAuthority> authorities;
-//    public static cashRichUserDetails buildUserDetails(User user) {
+    public static cashRichUserDetails buildUserDetails(User user) {
 //        List<GrantedAuthority> authorities = user.getRoles()
 //                .stream()
 //                .map(role -> new SimpleGrantedAuthority(role.getName()))
 //                .collect(Collectors.toList());
-//        return new cashRichUserDetails(
-//                user.getId(),
-//                user.getUsername(),
-//                user.getPassword(),
-//                authorities);
-//
-//    }
+        return new cashRichUserDetails(
+                user.getId(),
+                user.getUsername(),
+                user.getPassword(),
+                null);
+
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
